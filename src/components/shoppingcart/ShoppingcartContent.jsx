@@ -361,7 +361,7 @@ const CheckBody = (props) => {
 
     sethandleDialogs(true);
 
-    setTimeout(() => history.push("/"), 5000);
+    setTimeout(() => history.push("/"), 3000);
   };
 
   const purchaseList = productsHandle.map((el) => {
@@ -504,7 +504,7 @@ const CheckBody = (props) => {
       <Dialog open={handleDialogs}>
         <DialogContent>
           <DialogContentText className={classes.dialog}>
-            新增訂單成功 5秒後自動跳轉
+            新增訂單成功 等待自動跳轉
           </DialogContentText>
         </DialogContent>
       </Dialog>
