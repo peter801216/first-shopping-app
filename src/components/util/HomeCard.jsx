@@ -5,7 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardMedia from "@material-ui/core/CardMedia";
 import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -13,13 +14,15 @@ const useStyles = makeStyles((theme) => ({
   },
   cardImage: {
     maxWidth: "1000px",
+    minWidth: "320px",
   },
   button: {
     position: "absolute",
     height: "50px",
-    width: "180px",
-    left: "80%",
-    top: "90%",
+    width: "18%",
+    minWidth: "75px",
+    right: "5%",
+    bottom: "5%",
     backgroundColor: "#212121",
     cursor: "pointer",
     color: "#fff",
@@ -31,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const HomeCard = (props) => {
   const classes = useStyles();
+  const matches880px = useMediaQuery("(max-width:880px)");
+
   const { link, image, title, btnText } = props;
   return (
     <Card className={classes.cardContainer}>
@@ -42,7 +47,11 @@ export const HomeCard = (props) => {
       />
       <Link to={link}>
         <Button className={classes.button}>
-          <Typography variant="h5">{btnText}</Typography>
+          {matches880px ? (
+            <p>{btnText}</p>
+          ) : (
+            <Typography variant="h5">{btnText}</Typography>
+          )}
         </Button>
       </Link>
     </Card>
