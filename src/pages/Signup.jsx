@@ -136,7 +136,7 @@ export const Signup = () => {
             className={classes.textField}
             id="confirmPassword"
             name="confirmPassword"
-            type="confirmPassword"
+            type="password"
             label="請再輸入一次密碼"
             fullWidth
             variant="outlined"

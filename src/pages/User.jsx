@@ -11,7 +11,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 //Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserData } from "../redux/actions/userActions";
+import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => ({
   btn: {
@@ -24,8 +26,13 @@ const useStyles = makeStyles((theme) => ({
 
 export const User = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.credentials.userId);
   const userPath = USER + "/" + userId;
+
+  useEffect(() => {
+    dispatch(getUserData());
+  });
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">

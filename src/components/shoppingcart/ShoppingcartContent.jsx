@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 //Routes
 import { Link } from "react-router-dom";
 import { PRODUCTS } from "../../configs/routes";
@@ -89,6 +89,7 @@ export const ShoppingcartContent = (props) => {
   }, 0);
   //操作結帳功能
   const [checkBody, setcheckBody] = useState({ open: false, defer: false });
+
   const handleOpenCheckBody = (open) => {
     setcheckBody({
       open: open,
@@ -145,6 +146,7 @@ const CheckBody = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const orderHandleRef = useRef(null);
   const credentials = useSelector((state) => state.user.credentials);
   const products = useSelector((state) => state.products);
   const { cost, productsHandle } = props;
@@ -166,6 +168,15 @@ const CheckBody = (props) => {
     address: false,
     bankCode: false,
     accountNumber: false,
+  });
+
+  useEffect(() => {
+    const handleScrollByRef = (ref) => {
+      if (ref.current) {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+    return handleScrollByRef.bind(null, orderHandleRef);
   });
 
   const handleToggleChange = () => {
@@ -358,7 +369,7 @@ const CheckBody = (props) => {
       (product) => product.productId === el.productId
     );
     return (
-      <div key={el.productId}>
+      <div key={el.productId} ref={orderHandleRef}>
         <Grid container direction="row">
           <Grid item style={{ width: 150 }}>
             <Typography className={classes.subtitle1}>
