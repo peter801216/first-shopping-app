@@ -1,3 +1,40 @@
+## 作品說明
+
+使用 react 打造一個購物系統。
+
+- 功能
+
+* 登入/註冊
+* 修改會員資料
+* 購物車
+* 追蹤/查看購買紀錄
+
+原本構想 App 有賣家端與買家端，時間因素所以目前內容只有買家端的功能。
+賣家端功能例如: 管理訂單、商品上/下架、修改價目和折扣等。
+
+此 App 藉由 Material UI 實現 RWD 功能。
+
+## 工具
+
+- firebase
+
+* Authentication(使用者系統)
+* Cloud Firestore(雲端儲存資料)
+* Functions(後端功能)
+* Hosting(網站控管，附上本 App 連結，[first-shop-app](https://first-shopping-app-bf21e.web.app/))
+
+- React.js
+
+* React Hook
+* React Router
+* Redux
+* Material UI
+
+- axios
+- express
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
