@@ -86,7 +86,7 @@ const Render = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  dispatch(getProducts({ sortmethod: "count", order: "desc" }));
+  dispatch(getProducts({ "sortmethod": "count", "order": "desc" }));
 
   return (
     <Router>

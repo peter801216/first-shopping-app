@@ -514,9 +514,13 @@ exports.cleanShoppingcart = (req, res) => {
 };
 
 exports.resetPassword = (req, res) => {
+  if(!req.phone) {
+    return res.json({message: 'Not login'})
+  }
   const newPassword = req.body.password;
-  const user = firebase.auth().currentUser;
-  user
+  firebase
+    .auth()
+    .currentUser
     .updatePassword(newPassword)
     .then(() => {
       console.log(newPassword);
